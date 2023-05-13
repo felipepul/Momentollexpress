@@ -1,0 +1,73 @@
+<%- include('partials/header'); %>
+
+<main class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 mx-auto">
+      <div class="container mt-5 w-75">
+        <h2 class="h2 m-2">Rent a Car</h2>
+        <form action="/rent/register" method="post">
+          <div class="form-floating m-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="numberRent"
+              name="numberRent"
+              required
+            />
+            <label for="floatingInput">numberRent</label>
+          </div>
+          <div class="form-floating m-2">
+            <select class="form-select" id="floatingSelect" name="username">
+              <option selected>Select a User</option>
+              <% for(var i=0; i < users.length; i++) { %>
+              <option value="<%= users[i].userName %>">
+                <%= users[i].userName %>
+              </option>
+              <% } %>
+            </select>
+            <label for="floatingSelect">Select a User</label>
+          </div>
+          <div class="form-floating m-2">
+            <select class="form-select" id="floatingSelect" name="plateNumber">
+              <option selected>Select a Plate</option>
+              <% for(var i=0; i < cars.length; i++) {if (cars[i].estado ===
+              true) { %>
+              <option value="<%= cars[i].placa %>"><%= cars[i].placa %></option>
+              <% }} %>
+            </select>
+            <label for="floatingSelect">Select a Plate Number</label>
+          </div>
+          <button class="w-50 btn btn-primary d-block mx-auto" type="submit">
+            Register a Rent
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 mx-auto">
+      <div class="container mt-5">
+        <h2 class="h2">Rents</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">numberRent</th>
+              <th scope="col">Username</th>
+              <th scope="col">Plate Number</th>
+              <th scope="col">Rent Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i < rents.length; i++) { %>
+            <tr>
+              <td><%= rents[i].numberRent %></td>
+              <td><strong><%= rents[i].username %></strong></td>
+              <td><%= rents[i].plateNumber %></td>
+              <td><%= rents[i].rentDate %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+<% include('partials/footer'); %>

@@ -1,0 +1,60 @@
+<%- include('partials/header'); %>
+
+<main class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 mx-auto">
+      <div class="container mt-5 w-75">
+        <h2 class="h2">Register Car</h2>
+        <form action="/car/register" method="post">
+          <div class="form-floating m-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="placa"
+              name="placa"
+              required
+            />
+            <label for="floatingInput">Placa</label>
+          </div>
+          <div class="form-floating m-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="marca"
+              name="marca"
+              required
+            />
+            <label for="floatingInput">marca</label>
+          </div>
+          <button class="w-50 btn btn-primary d-block mx-auto" type="submit">
+            Register a Car
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 mx-auto">
+      <div class="container mt-5">
+        <h2 class="h2">Cars</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Placa</th>
+              <th scope="col">marca</th>
+              <th scope="col">estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i < cars.length; i++) { %>
+            <tr>
+              <td><%= cars[i].placa %></td>
+              <td><strong><%= cars[i].marca %></strong></td>
+              <td><%= cars[i].estado %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+<% include('partials/footer'); %>

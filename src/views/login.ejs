@@ -1,0 +1,116 @@
+<%- include('partials/header'); %>
+
+<main class="container">
+  <% if (users) { %>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="container mt-5">
+        <h2 class="h2">Login in my app</h2>
+        <p class="lead">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+          numquam molestias vitae quis nostrum sunt veritatis voluptas, adipisci
+          in ipsa assumenda consequuntur commodi blanditiis, perspiciatis
+          dolorum iusto ipsum libero quisquam?
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 text-end">
+      <form
+        action="/user/login"
+        method="post"
+        class="container w-50 mt-5 p-2 text-center border"
+      >
+        <h1 class="h1">Login</h1>
+        <div class="form-floating m-2">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Username"
+            name="userName"
+            required
+          />
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating m-2">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="w-50 btn btn-primary d-block mx-auto" type="submit">
+          Sign in
+        </button>
+
+        <a class="text-muted d-block" href="/register">Sign up</a>
+      </form>
+    </div>
+  </div>
+  <% } else if (userLogin === false && users === false) { %>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="container mt-5">
+        <h2 class="h2">Register in my app</h2>
+        <p class="lead">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem culpa,
+          commodi nostrum dolorem consequatur obcaecati fuga mollitia. Officia
+          rerum quisquam, cumque minima numquam necessitatibus maiores
+          voluptate, unde vero suscipit nesciunt.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 text-end">
+      <form
+        action="/user/register"
+        method="post"
+        class="container w-50 mt-5 p-2 text-center border"
+      >
+        <h1 class="h1">Sign Up</h1>
+        <div class="form-floating m-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Name"
+            name="name"
+            required
+          />
+          <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating m-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            name="userName"
+            required
+          />
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating m-2">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="w-50 btn btn-primary d-block mx-auto" type="submit">
+          Sign up
+        </button>
+
+        <a class="text-muted d-block" href="/login">Sign in</a>
+      </form>
+    </div>
+  </div>
+  <%}%>
+</main>
+<% include('partials/footer'); %>
